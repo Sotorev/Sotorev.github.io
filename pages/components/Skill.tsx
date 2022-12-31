@@ -95,7 +95,7 @@ const Content = styled.div`
 		}
 	}
 `;
-export default function Skill({ name, Icon, idx }: Props) {
+export default function Skill({ name='Skill', Icon, idx }: Props) {
 	const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
 
 	return (
