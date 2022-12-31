@@ -127,7 +127,7 @@ export default function Navbar() {
 					<StyledOl>
 						{items.map((item, idx) => (
 							<StyledLi animate={animate} idx={idx} key={idx + item}>
-								<a href={`#${item.toLowerCase()}`}>{item}</a>
+								<Link href={`#${item.toLowerCase()}`}>{item}</Link>
 							</StyledLi>
 						))}
 					</StyledOl>
@@ -146,7 +146,7 @@ export default function Navbar() {
 							<StyledOl>
 								{items.map((item, idx) => (
 									<StyledLi animate={animate} idx={idx} key={idx + item}>
-										<a href={`#${item.toLowerCase()}`} onClick={toggleMenu}>{item}</a>
+										<Link href={`#${item.toLowerCase()}`} onClick={toggleMenu}>{item}</Link>
 									</StyledLi>
 								))}
 							</StyledOl>
