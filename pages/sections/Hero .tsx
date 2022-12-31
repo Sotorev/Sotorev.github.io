@@ -51,7 +51,7 @@ function Hero() {
 					idx={"Hello, I'm Manuel,".length}
 				/>
 				<StyledP className='animate__animated animate__fadeInUp' >
-					I'm a web developer. I'm passionate about
+					I&apos;m a web developer. I&apos;m passionate about
 					creating beautiful and functional websites.
 				</StyledP>
 			</TextWrapper>
