@@ -65,7 +65,7 @@ function About() {
 							<Skill
 								key={idx}
 								name={item.name}
-								Icon={item.icon}
+								Icon={item.Icon}
 								idx={idx}
 							/>
 						))

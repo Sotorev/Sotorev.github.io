@@ -6,26 +6,32 @@ import TypeScriptIcon from '../icons/typescript.js'
 // import NextIcon from 'icons/next.js'
 import TailWindIcon from '../icons/tailwindicon.js'
 
-const data =  [
+type Skill = {
+	name: string;
+	Icon: () => JSX.Element;
+}
+
+const data: Skill[] =  [
 	{
 		name: 'Python',
-		icon: PythonIcon,
+		Icon: PythonIcon,
 	},
+
 	{
 		name: 'React',
-		icon: ReactIcon,
+		Icon: ReactIcon,
 	},
 	{
 		name: 'JavaScript',
-		icon: JavaScriptIcon,
+		Icon: JavaScriptIcon,
 	},
 	{
 		name: 'Styled Components',
-		icon: StyledComponentsIcon,
+		Icon: StyledComponentsIcon,
 	},
 	{
 		name: 'TypeScript',
-		icon: TypeScriptIcon,
+		Icon: TypeScriptIcon,
 	},
 	// {
 	// 	name: 'Next.js',
@@ -33,7 +39,7 @@ const data =  [
 	// },
 	{
 		name: 'Tailwind CSS',
-		icon: TailWindIcon,
+		Icon: TailWindIcon,
 	},
 ]
 
