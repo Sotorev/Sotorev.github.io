@@ -95,16 +95,16 @@ const Content = styled.div`
 		}
 	}
 `;
-export default function Skill({idx}: Props) {
+export default function Skill({idx, name, Icon}: Props) {
 	const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
 
 	return (
 		 <Wrapper ref={ref} inView={inView} idx={idx}>
-			{/* <Content>
+			<Content>
 				{<Icon />}
 				<h4>{name}</h4>
 			</Content>
-			<GlowAux className='glow' /> */}
+			<GlowAux className='glow' />
 		</Wrapper>
 	);
 }
