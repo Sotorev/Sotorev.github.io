@@ -6,7 +6,7 @@ import TypeScriptIcon from '../icons/typescript.js'
 // import NextIcon from 'icons/next.js'
 import TailWindIcon from '../icons/tailwindicon.js'
 
-export default [
+const data =  [
 	{
 		name: 'Python',
 		icon: PythonIcon,
@@ -36,3 +36,5 @@ export default [
 		icon: TailWindIcon,
 	},
 ]
+
+export default data;
