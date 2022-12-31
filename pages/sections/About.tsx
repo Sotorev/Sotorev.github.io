@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import AnimattedLetters from '../components/AnimattedLetters';
 import { useInView } from 'react-intersection-observer';
-// import data from '../../public/skills';
-// import Skill from '../components/Skill';
+import data from '../../public/skills';
+import Skill from '../components/Skill';
 
 const Wrapper = styled.section`
 	position: relative;
@@ -58,19 +58,19 @@ function About() {
 					Hello!, My name is Manuel and I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try creating fandom webpages. My main focus these days is building accesible, inclusive products and digital experiences.
 				</StyledParagraph>
 				
-				{/* <TechList>
+				<TechList>
 					{
 						data !== undefined &&
 						data.map((item, idx) => (
 							<Skill
 								key={idx}
-								name={item.name}
+								// name={item.name}
 								Icon={item.Icon}
 								idx={idx}
 							/>
 						))
 					}
-				</TechList> */}
+				</TechList>
 			</ContentWrapper>
 		</Wrapper>
 	)
