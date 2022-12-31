@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { useEffect, useState} from 'react';
-import useScrollDir from './hooks/useScrollDir';
+import useScrollDir from '../hooks/useScrollDir';
 import styled from 'styled-components';
+import Sidebar from './Sidebar';
 
 const NavMenuButton = styled.div`
 	position: relative;
@@ -42,7 +43,7 @@ const NavBar = styled.nav<{ scrollDir: string; }>`
 	width: 100%;
 	top: ${props => props.scrollDir === "DOWN" ? "-80px" : "0px"};
 	box-shadow: ${props => props.scrollDir === "UP" ? "0 0 10px rgba(0,0,0,.548)" : props.scrollDir === "DOWN" ? "0 0 10px rgba(0,0,0,.548)" : "none"};
-	transition: all .5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+	transition: all .5s ease-in-out;
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 	z-index: 1;
@@ -53,8 +54,8 @@ const StyledOl = styled.ol`
 		color: var(--secondary);
 		margin: 0;
 		padding: 0;
-		margin-left: 1rem;
-		@media screen and (min-width: 769px){
+		margin-left: 2rem;
+		@media screen and (min-width: 768px){
 			display: flex;
 			align-items: center;
 		}
@@ -67,26 +68,11 @@ const StyledLinks = styled.div`
 	}
 
 `;
-const Sidebar = styled.aside<{ menuOpen: boolean }>`
-	backdrop-filter: blur(10px);
-  position: fixed;
-	top: 0;
-	right: 0;
-	width: 50%;
-	height: 100vh;
-	background-color: rgba(0,0,0,.8);
-	z-index: 2;
-	transform: translateX(${props => props.menuOpen ? "0" : "100%"});
-	transition: all .3s ease-in-out;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	@media screen and (min-width: 769px) {
+const StyledMenu = styled.div<{ menuOpen: boolean }>`
+	@media screen and (min-width: 768px) {
 		display: none;
 	}
-
-`;
+`
 const StyledLi = styled.li<{ animate: boolean, idx: number }>`
 	  margin: 1rem 0;
 	  transition: all .4s;
@@ -94,15 +80,14 @@ const StyledLi = styled.li<{ animate: boolean, idx: number }>`
 		text-decoration: none;
 		color: var(--text-primary);
 		&:hover {
-			color: var(--tertiary);
+			color: var(--quaternary);
 		}
 	  }
-	  @media screen and (min-width: 769px) {
+	  @media screen and (min-width: 768px) {
 			margin: 0 1rem;
 			transform: translate(0, ${props => props.animate ? "-100px" : "0"});
-			transition-delay: ${props => props.idx*0.1 + "s" };
-			//create a cool transition timing function for the animation
-			transition-timing-function: ease-in-out;
+			transition-delay: ${props => props.idx*0.1 + "s" };		
+			transition-timing-function: cubic-bezier(0.77, 0.2, 0.05, 1.0);
 		}
 		  
 `
@@ -132,52 +117,44 @@ export default function Navbar() {
 		document.body.style.overflow = menuOpen ? "auto" : "hidden";
 		setMenuOpen(!menuOpen);
 	}
+	const items = ["Home", "About", "Projects", "Contact"];
 	return (
 		<>
 			
 			<NavBar scrollDir={scrollDir}>
 				<a href="/"><Img src="images/manrev.png" alt="logo" animate={animate} /></a>
-				
-				<NavMenuButton
-					className={menuOpen ? "open" : "closed"}
-					onClick={toggleMenu}
-				>
-					<span></span>
-					<span></span>
-					<span></span>
-				</NavMenuButton>
 				<StyledLinks>
 					<StyledOl>
-						<StyledLi animate={animate} idx={0}>
-							<Link href="/">Home</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={1}>
-							<Link href="/about">About</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={2}>
-							<Link href="/projects">Projects</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={3}>
-							<Link href="/contact">Contact</Link>
-						</StyledLi>
+						{items.map((item, idx) => (
+							<StyledLi animate={animate} idx={idx} key={idx + item}>
+								<a href={`#${item.toLowerCase()}`}>{item}</a>
+							</StyledLi>
+						))}
 					</StyledOl>
 				</StyledLinks>
-				<Sidebar menuOpen={menuOpen}>
-					<StyledOl>
-						<StyledLi animate={animate} idx={0}>
-							<Link href="/">Home</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={1}>
-							<Link href="/about">About</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={2}>
-							<Link href="/projects">Projects</Link>
-						</StyledLi>
-						<StyledLi animate={animate} idx={3}>
-							<Link href="/contact">Contact</Link>
-						</StyledLi>
-					</StyledOl>
-				</Sidebar>
+				<StyledMenu menuOpen={menuOpen}>
+					<NavMenuButton
+						className={menuOpen ? "open" : "closed"}
+						onClick={toggleMenu}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</NavMenuButton>
+					<Sidebar menuOpen={menuOpen}>
+						<nav>
+							<StyledOl>
+								{items.map((item, idx) => (
+									<StyledLi animate={animate} idx={idx} key={idx + item}>
+										<a href={`#${item.toLowerCase()}`} onClick={toggleMenu}>{item}</a>
+									</StyledLi>
+								))}
+							</StyledOl>
+						</nav>
+
+					</Sidebar>
+				</StyledMenu>
+				
 			</NavBar>
 		</>
 	)

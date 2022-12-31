@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import Head from 'next/head'
-import Navbar from './Navbar'
-import Hero from './Hero '
+import Navbar from './components/Navbar'
+import Hero from './sections/Hero '
+import About from './sections/About'
+import Contact from './sections/Contact'
+import Footer from './Footer'
+import Projects from './sections/Projects'
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
 const StyledMain = styled.main`
   @media screen and (max-width: 1024px) {
       padding: 0px 100px;
@@ -20,7 +20,6 @@ const StyledMain = styled.main`
   
   max-width: 1600px;
   padding: 0px 150px;
-  height: 300vh;
   position: relative;
   section {
     margin: 0 auto;
@@ -47,7 +46,11 @@ export default function Home() {
       </StyledHeader>
       <StyledMain>
         <Hero />
+        <About />
+        <Projects />
+        <Contact />
       </StyledMain>
+      <Footer/>
     </>
   )
 }
