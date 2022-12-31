@@ -96,7 +96,7 @@ const Content = styled.div`
 	}
 `;
 export default function Skill({ name, Icon, idx }: Props) {
-	const [ref, inView, entry] = useInView({ threshold: 0.3, triggerOnce: false });
+	const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
 
 	return (
 		<Wrapper ref={ref} inView={inView} idx={idx}>

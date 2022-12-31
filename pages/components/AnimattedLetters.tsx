@@ -36,7 +36,7 @@ const StyledSpan = styled.span<{fontSize?: string, color?: string}>`
 
 `;
 
-function AnimattedLetters({ text, idx, fontSize, timeOut, color}: Props) {
+function AnimattedLetters({ text = '', idx, fontSize, timeOut, color}: Props) {
 	const [hasLoaded, setHasLoaded] = React.useState(false);
 
 	useEffect(() => {
