@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AnimattedLetters from '../components/AnimattedLetters';
 import { useInView } from 'react-intersection-observer';
-import data from '../../public/skills';
+import data from '../skills';
 import Skill from '../components/Skill';
 
 const Wrapper = styled.section`

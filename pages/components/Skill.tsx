@@ -101,7 +101,7 @@ export default function Skill({idx, name, Icon}: Props) {
 	return (
 		 <Wrapper ref={ref} inView={inView} idx={idx}>
 			<Content>
-				{/* {<Icon />} */}
+				{<Icon />}
 				<h4>{name}</h4>
 			</Content>
 			<GlowAux className='glow' />
