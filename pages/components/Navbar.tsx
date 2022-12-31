@@ -122,7 +122,7 @@ export default function Navbar() {
 		<>
 			
 			<NavBar scrollDir={scrollDir}>
-				<a href="/"><Img src="images/manrev.png" alt="logo" animate={animate} /></a>
+				<Link href="/"><Img src="images/manrev.png" alt="logo" animate={animate} /></Link>
 				<StyledLinks>
 					<StyledOl>
 						{items.map((item, idx) => (
