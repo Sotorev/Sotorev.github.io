@@ -2,6 +2,7 @@ import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 
 type Props = {
+	name: string;
 	Icon: () => JSX.Element;
 	idx: number;
 };
@@ -94,16 +95,16 @@ const Content = styled.div`
 		}
 	}
 `;
-export default function Skill({ Icon, idx }: Props) {
+export default function Skill({idx}: Props) {
 	const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
 
 	return (
-		<Wrapper ref={ref} inView={inView} idx={idx}>
-			<Content>
+		 <Wrapper ref={ref} inView={inView} idx={idx}>
+			{/* <Content>
 				{<Icon />}
-				{/* <h4>{name}</h4> */}
+				<h4>{name}</h4>
 			</Content>
-			<GlowAux className='glow' />
+			<GlowAux className='glow' /> */}
 		</Wrapper>
 	);
 }

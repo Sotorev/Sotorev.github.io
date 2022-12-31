@@ -64,7 +64,7 @@ function About() {
 						data.map((item, idx) => (
 							<Skill
 								key={idx}
-								// name={item.name}
+								name={item.name}
 								Icon={item.Icon}
 								idx={idx}
 							/>
