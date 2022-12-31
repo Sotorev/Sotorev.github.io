@@ -59,14 +59,17 @@ function About() {
 				</StyledParagraph>
 				
 				<TechList>
-					{data.map((item, idx) => (
-						<Skill
-							key={idx}
-							name={item.name}
-							Icon={item.icon}
-							idx={idx}
-						/>
-					))}
+					{
+						data !== undefined &&
+						data.map((item, idx) => (
+							<Skill
+								key={idx}
+								name={item.name}
+								Icon={item.icon}
+								idx={idx}
+							/>
+						))
+					}
 				</TechList>
 			</ContentWrapper>
 		</Wrapper>
