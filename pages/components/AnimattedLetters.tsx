@@ -66,7 +66,7 @@ function AnimattedLetters({ text, idx, fontSize, timeOut, color}: Props) {
 	return (
 		<Wrapper>
 			{
-				Array.from(text).map((letter, i) => {
+				text.split('').map((letter, i) => {
 					return (
 
 						<StyledSpan
