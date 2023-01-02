@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AnimattedLetters from '../components/AnimattedLetters';
 import { useInView } from 'react-intersection-observer';
-import data from '../skills';
+import {data} from '../../lib/skills';
 import Skill from '../components/Skill';
 
 const Wrapper = styled.section`
@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 	padding-top: 150px;
 `
 const StyledParagraph = styled.p<{ inView: boolean }>`
-	transition: transform .4s ease-in-out;
+	transition: all 1s ease-in-out;
 	opacity: ${({ inView }) => inView ? '1' : '0'};
 	transform: translateX(${({ inView }) => inView ? '0' : '-5%'});
 	font-size: clamp(1rem, 2vw, 1.2rem);
