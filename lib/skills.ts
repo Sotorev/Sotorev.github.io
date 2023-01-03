@@ -6,12 +6,12 @@ import TypeScriptIcon from '../icons/typescript.js'
 // import NextIcon from 'icons/next.js'
 import TailWindIcon from '../icons/tailwindicon.js'
 
-// type Skill = {
-// 	name: string;
-// 	Icon: () => JSX.Element;
-// }
+type Skill = {
+	name: string;
+	Icon: () => JSX.Element;
+}
 
-const data =  [
+const data : Skill[] =  [
 	{
 		name: 'Python',
 		Icon: PythonIcon,
@@ -22,7 +22,7 @@ const data =  [
 		Icon: ReactIcon,
 	},
 	{
-		name: 'JavaScript',
+		name: 'JavaScript ES6+',
 		Icon: JavaScriptIcon,
 	},
 	{

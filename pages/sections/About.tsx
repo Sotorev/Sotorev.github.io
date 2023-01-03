@@ -12,7 +12,8 @@ const Wrapper = styled.section`
 	padding-top: 150px;
 `
 const StyledParagraph = styled.p<{ inView: boolean }>`
-	transition: all 1s ease-in-out;
+	transition: all .7s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	opacity: ${({ inView }) => inView ? '1' : '0'};
 	transform: translateX(${({ inView }) => inView ? '0' : '-5%'});
 	font-size: clamp(1rem, 2vw, 1.2rem);
