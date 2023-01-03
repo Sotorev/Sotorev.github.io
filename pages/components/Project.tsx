@@ -184,6 +184,9 @@ type Props = {
 }
 
 function Project({ name, image, description, tech, url }: Props) {
+	if (!name || !image || !description || !tech || !url) {
+		return null;
+	}
 	return (
 		<Wrapper>
 			<StyledContent className='project-content'>
