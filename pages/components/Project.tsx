@@ -4,21 +4,28 @@ import styled from 'styled-components';
 
 const Wrapper = styled.li`
 	position: relative;
-	/* aspect-ratio: 1/1; */
 	max-width: 1000px;
 	width: 100%;
 	display: grid;
 	flex-direction: column;
 	align-items: center;
 	grid-template-columns: repeat(12, 1fr);
+	margin-bottom: 30px;
 	@media screen and (min-width: 768px){
-		aspect-ratio: unset;
-		margin: 0 auto;
+		margin-bottom: 100px;
 		&:nth-child(even){
 		.project-content{
 			grid-column: 1 / 8;
 			.project-title{
 				align-self: flex-start;
+			}
+			.project-description{
+				text-align: left;
+			}
+			.project-tech-list{
+				ul{
+					justify-content: flex-start;
+				}
 			}
 		}
 		.project-image{
@@ -35,13 +42,13 @@ const Wrapper = styled.li`
 
 
 const StyledImageContainer = styled.div`
+	position: relative;
+	z-index: 1;
 	box-sizing: border-box;
 	cursor: pointer;
-	position: relative;
 	width: 100%;
 	height: 100%;
 	border: 1px solid #5f4ca3;
-	
 	border-radius: 5px;
 	overflow: hidden;
 	grid-area: 1 / 1 / -1 / 8;
@@ -99,25 +106,28 @@ const StyledImage = styled.img`
 `
 
 const StyledContent = styled.div`
+	position: relative;
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	/* align-items: center; */
 	box-sizing: border-box;
 	grid-area: 1 / 6 / -1 / -1;
+	padding: 25px 25px 20px;
 	@media screen  and (min-width: 768px){
 		position: relative;
 		margin: auto;
 	}
 	@media screen and (max-width: 768px){
+		z-index: 5;
 		grid-column: 1/-1;
 	}
 `;
 const StyledDescription = styled.div`
 
 	position: relative;
+	z-index: 2;
 	display: flex;
 	box-sizing: border-box;
 	padding: 25px;
@@ -125,8 +135,8 @@ const StyledDescription = styled.div`
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
-	z-index: 5;
 	box-shadow: 0 10px 20px -15px rgba(147, 245, 235, 0.034);
+	text-align: right;
 	@media screen and (min-width: 768px){
 		background-color: #24292F;
 
@@ -154,15 +164,30 @@ const StyledTitle = styled.h2`
 	a{
 		text-decoration: none;
 	}
+	@media screen and (max-width: 768px){
+		a{
+			&::before{
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
 `;
 const StyledTech = styled.div`
 	position: relative;
-	z-index: 1;
 	display: flex;
-
+	z-index: 2;
 	ul{
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: flex-end;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -194,7 +219,7 @@ function Project({ name, image, description, tech, url }: Props) {
 				<StyledDescription className='project-description'>
 					<StyledText>{description}</StyledText>
 				</StyledDescription>
-				<StyledTech className='project-tech'>
+				<StyledTech className='project-tech-list'>
 					<ul>
 						{tech.map((tech, index) => (
 							<li key={index}>{tech}</li>
