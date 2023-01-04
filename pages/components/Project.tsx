@@ -214,11 +214,12 @@ type Props = {
 }
 
 function Project({ name, image, description, tech, url }: Props) {
+	const [ref, inView] = useInView({threshold: 0.2, triggerOnce: true});
+
 	if (!name || !image || !description || !tech || !url) {
 		return null;
 	}
 
-	const [ref, inView] = useInView({threshold: 0.2, triggerOnce: true});
 	return (
 		<Wrapper ref={ref} inView={inView}>
 			<StyledContent className='project-content'>
