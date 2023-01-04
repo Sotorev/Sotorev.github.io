@@ -4,8 +4,10 @@ import Navbar from './components/Navbar'
 import Hero from './sections/Hero '
 import About from './sections/About'
 import Contact from './sections/Contact'
-import Footer from './Footer'
+import Footer from './components/Footer'
 import Projects from './sections/Projects'
+import SocialList from './components/SocialList'
+import Socials from '../lib/socials'
 
 const StyledMain = styled.main`
   @media screen and (max-width: 1024px) {
@@ -44,6 +46,9 @@ export default function Home() {
       <StyledHeader>
         <Navbar />
       </StyledHeader>
+      <SocialList
+        socials={Socials}
+      />
       <StyledMain>
         <Hero />
         <About />

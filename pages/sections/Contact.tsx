@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components'
@@ -17,7 +18,8 @@ const StyledH2 = styled.h2`
 	-webkit-text-fill-color: transparent;
 	background-image: linear-gradient(300deg, #93f5ec 20%, #a77bf3 70%);
 `
-const ContactButton = styled.button`
+const ContactButton = styled(Link)`
+	text-decoration: none;
 	border: 1px solid #a77bf3;
 	background-color: transparent;
 	border-radius: 10px;
@@ -37,7 +39,7 @@ function Contact() {
 			<StyledH2>
 				Get in touch
 			</StyledH2>
-			<ContactButton>
+			<ContactButton href={"mailto:sotorev7@gmail.com"}>
 				Say hello
 			</ContactButton>
 		</Wrapper>

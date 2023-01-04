@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import React from 'react'
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 
-const Wrapper = styled.li`
+const Wrapper = styled.li<{ inView: boolean }>`
+	opacity: ${({ inView }) => inView ? '1' : '0'};
+	transform: translateY(${({ inView }) => inView ? '0' : '100px'});
+	transition: all 1s;
 	position: relative;
 	max-width: 1000px;
 	width: 100%;
@@ -130,14 +134,15 @@ const StyledDescription = styled.div`
 	z-index: 2;
 	display: flex;
 	box-sizing: border-box;
-	padding: 25px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
 	box-shadow: 0 10px 20px -15px rgba(147, 245, 235, 0.034);
-	text-align: right;
+	text-align: justify;
 	@media screen and (min-width: 768px){
+		padding: 25px;
+		text-align: right;
 		background-color: #24292F;
 
 		align-items: flex-start;
@@ -212,8 +217,10 @@ function Project({ name, image, description, tech, url }: Props) {
 	if (!name || !image || !description || !tech || !url) {
 		return null;
 	}
+
+	const [ref, inView] = useInView({threshold: 0.2, triggerOnce: true});
 	return (
-		<Wrapper>
+		<Wrapper ref={ref} inView={inView}>
 			<StyledContent className='project-content'>
 				<StyledTitle className='project-title'>{<Link target={'_blank'} href={url}>{name}</Link>}</StyledTitle>
 				<StyledDescription className='project-description'>

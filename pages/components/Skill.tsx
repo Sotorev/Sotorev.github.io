@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type Props = {
 	name: string;
-	Icon: any;
+	Icon: () => JSX.Element;
 	idx: number;
 };
 
@@ -103,10 +103,7 @@ export default function Skill({idx, name, Icon}: Props) {
 			<Wrapper ref={ref} inView={inView} idx={idx}>
 				<Content>
 					{
-
 						<Icon />
-
-
 					}
 					<h4>{name}</h4>
 				</Content>
