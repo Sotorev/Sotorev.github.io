@@ -82,7 +82,7 @@ function SocialList({ socials }: Props) {
 			<StyledUl>
 				{socials.map((social, index) => (
 					<StyledLi key={index}>
-						<StyledLink href={social.url}>
+						<StyledLink target={'_blank'} href={social.url}>
 							<StyledIcon>
 								{social.icon()}
 							</StyledIcon>
