@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { type } from 'os';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ animation: boolean }>`
 	@media screen and (max-width: 768px){
 		display: none;
 	}
+	transform: ${props => props.animation ? 'translateY(0)' : 'translateY(100%)'};
+	transition: all 0.5s ease-out;
 	display: flex;
 	width: 40px;
 	position: fixed;
@@ -76,9 +78,15 @@ type Props = {
 }
 
 function SocialList({ socials }: Props) {
+	const [animation, setAnimation] = useState(false);
+	useEffect(() => {
+		setTimeout(() => {
+			setAnimation(true);
+		}, 800);
+	}, []);
 	if(!socials) return null;
 	return (
-		<Wrapper>
+		<Wrapper animation={animation}>
 			<StyledUl>
 				{socials.map((social, index) => (
 					<StyledLi key={index}>
