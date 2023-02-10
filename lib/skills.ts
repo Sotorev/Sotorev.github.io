@@ -5,6 +5,7 @@ import StyledComponentsIcon from '../icons/styledcomponents.js'
 import TypeScriptIcon from '../icons/typescript.js'
 // import NextIcon from 'icons/next.js'
 import TailWindIcon from '../icons/tailwindicon.js'
+import NodeJSIcon from '../icons/nodejs.js'
 
 type Skill = {
 	name: string;
@@ -41,6 +42,10 @@ const data : Skill[] =  [
 		name: 'Tailwind CSS',
 		Icon: TailWindIcon,
 	},
+	{
+		name: 'Node.js',
+		Icon: NodeJSIcon,
+	}
 ]
 
 export { data };
