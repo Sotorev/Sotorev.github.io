@@ -5,14 +5,27 @@ import StyledComponentsIcon from '../icons/styledcomponents.js'
 import TypeScriptIcon from '../icons/typescript.js'
 // import NextIcon from 'icons/next.js'
 import TailWindIcon from '../icons/tailwindicon.js'
-import NodeJSIcon from '../icons/nodejs.js'
+import HTMLIcon from '../icons/html.js'
+import CSSIcon from '../icons/css.js'
 
 type Skill = {
 	name: string;
 	Icon: () => JSX.Element;
 }
 
-const data : Skill[] =  [
+const data: Skill[] = [
+	{
+		name: 'HTML',
+		Icon: HTMLIcon,
+	},
+	{
+		name: 'CSS3+',
+		Icon: CSSIcon,
+	},
+	{
+		name: 'JavaScript ES6+',
+		Icon: JavaScriptIcon,
+	},
 	{
 		name: 'Python',
 		Icon: PythonIcon,
@@ -22,10 +35,7 @@ const data : Skill[] =  [
 		name: 'React',
 		Icon: ReactIcon,
 	},
-	{
-		name: 'JavaScript ES6+',
-		Icon: JavaScriptIcon,
-	},
+	
 	{
 		name: 'Styled Components',
 		Icon: StyledComponentsIcon,
@@ -42,10 +52,7 @@ const data : Skill[] =  [
 		name: 'Tailwind CSS',
 		Icon: TailWindIcon,
 	},
-	{
-		name: 'Node.js',
-		Icon: NodeJSIcon,
-	}
+	
 ]
 
 export { data };
